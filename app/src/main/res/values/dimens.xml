@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Text fonts : you should always use SP for fonts as it respects the user preferences -->
+    <dimen name="size_title">24sp</dimen>
+    <dimen name="size_subtitle">16sp</dimen>
+    <dimen name="size_description">12sp</dimen>
+
+    <!-- Margin / Padding -->
+    <dimen name="size_default">4dp</dimen>
+    <dimen name="size_2x">8dp</dimen>
+
+</resources>

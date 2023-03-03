@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This layout is used for the dialog that appears when the user clicks
+    on the "Register" (add) button in the main list fragment
+
+
+    CoordinatorLayout is a super-power version of FrameLayout
+
+       Allow a view to go outside of an other
+       Ease controls the animation and transactions of various child elements
+       Ease especially scroll-based behaviors
+
+-->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+android:layout_height="match_parent"
+>
+
+    <!-- The toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp">
+
+        <!-- The dialog "save" button -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/fragment_meeting_registration_dialog_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:paddingStart="6dp"
+            android:paddingEnd="16dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:navigationIcon="@drawable/ic_baseline_close_24dp"
+            app:title="@string/create_meeting"
+            app:titleTextColor="@android:color/white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Frame Layout : always put only one element -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- Relative Layout
+
+            A RelativeLayout is a very powerful utility for designing a user interface
+            because it can eliminate nested view groups and keep your layout hierarchy flat,
+            which improves performance.
+
+            The position of each view can be specified as relative to sibling elements
+            or in positions relative to the parent.
+        -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.meeting_creation.MeetingCreationFragment">
+
+            <!-- text input to enter the subject -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_meeting_registration_subject_text_input"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_2x"
+                android:hint="@string/subject"
+                app:helperText="required">
+
+                <!-- the actual text -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_baseline_subject_24dp"
+                    android:drawablePadding="@dimen/size_2x"
+                    android:maxLength="35" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- text input to enter the place -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_meeting_registration_place_text_input"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fragment_meeting_registration_subject_text_input"
+                android:layout_margin="@dimen/size_2x"
+                android:hint="@string/place"
+                app:helperText="required">
+
+                <!-- the actual text -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_baseline_place_24dp"
+                    android:drawablePadding="@dimen/size_default"
+                    android:maxLength="25" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Text input to pick the meeting date -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_meeting_registration_date_text_input"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_2x"
+                android:layout_below="@+id/fragment_meeting_registration_place_text_input"
+                android:hint="@string/meeting_date_and_time"
+                app:helperText="required">
+
+                <!-- the actual text -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_baseline_access_time_24dp"
+                    android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24dp"
+                    android:drawablePadding="@dimen/size_default"
+                    android:inputType="datetime"
+                    android:maxLength="14" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- CardView to display the "add persons to the meeting" link -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fragment_meetings_registration_persons_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fragment_meeting_registration_date_text_input">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/size_2x"
+                    android:drawableStart="@drawable/ic_baseline_groups_24dp"
+                    android:drawablePadding="@dimen/size_2x"
+                    android:padding="@dimen/size_2x"
+                    android:text="@string/add_persons_invited_to_the_meeting"
+                    android:textAppearance="@android:style/TextAppearance.Material"
+                    android:textColor="@color/colorAccent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- CardView to display the full list of persons invited to the meeting -->
+            <androidx.cardview.widget.CardView xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/fragment_meetings_creation_participants_list_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fragment_meetings_registration_persons_card_view"
+                android:layout_marginTop="1dp">
+
+                <TextView
+                    android:id="@+id/fragment_meeting_registration_persons_full_list_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/size_2x"
+                    android:padding="@dimen/size_2x"
+                    android:textAppearance="@android:style/TextAppearance.Material"
+                    android:textColor="@color/colorAccent"
+                    android:visibility="gone" />
+
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This layout is used for the dialog that appears when the user clicks
+    on the "Register" (add) button in the main list fragment, then follow the "add persons" button
+
+
+    CoordinatorLayout is a super-power version of FrameLayout
+
+       Allow a view to go outside of an other
+       Ease controls the animation and transactions of various child elements
+       Ease especially scroll-based behaviors
+
+-->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/fragment_add_persons_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:paddingStart="6dp"
+            android:paddingEnd="16dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:navigationIcon="@drawable/ic_baseline_close_24dp"
+            app:title="@string/add_persons"
+            app:titleTextColor="@android:color/white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Frame Layout : always put only one element -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- Card view for adding a person -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fragment_meetings_creation_people_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Relative Layout
+
+                A RelativeLayout is a very powerful utility for designing a user interface
+                because it can eliminate nested view groups and keep your layout hierarchy flat,
+                which improves performance.
+
+                The position of each view can be specified as relative to sibling elements
+                or in positions relative to the parent.
+            -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- text input to enter the email of the person -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fragment_add_person_text_input"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/size_2x"
+                    android:layout_toStartOf="@+id/fragment_add_person_btn"
+                    android:hint="@string/enter_person_mail">
+
+                    <!-- the actual text -->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_baseline_mail_24dp"
+                        android:drawablePadding="@dimen/size_2x"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="50" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Add person button -->
+                <ImageButton
+                    android:id="@+id/fragment_add_person_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/fragment_add_person_text_input"
+                    android:layout_alignBottom="@+id/fragment_add_person_text_input"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/size_2x"
+                    android:layout_marginEnd="@dimen/size_2x"
+                    android:layout_marginBottom="@dimen/size_2x"
+                    android:background="@null"
+                    android:contentDescription="@string/add_persons_button"
+                    android:padding="@dimen/size_2x"
+                    android:src="@drawable/ic_baseline_check_24dp"
+                    android:visibility="gone" />
+
+                <!-- Display full list of persons -->
+                <TextView
+                    android:id="@+id/fragment_add_persons_full_list_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/fragment_add_person_text_input"
+                    android:layout_marginStart="@dimen/size_2x"
+                    android:layout_marginTop="@dimen/size_2x"
+                    android:layout_marginEnd="@dimen/size_2x"
+                    android:layout_marginBottom="@dimen/size_2x"
+                    android:padding="@dimen/size_2x"
+                    android:textAppearance="@android:style/TextAppearance.Material"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/size_subtitle" />
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

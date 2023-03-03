@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">MaReu</string>
+    <string name="add_label">Add a meeting</string>
+    <string name="enter_person_mail">Enter person mail</string>
+    <string name="add_persons">Add persons</string>
+    <string name="add_persons_button">Add people button</string>
+    <string name="filter_by_date_or_venue">Filter by date or place</string>
+    <string name="expand_icon">Expand icon</string>
+    <string name="filter_place">filter place</string>
+    <string name="apply">Apply</string>
+    <string name="filter_start_date">filter start date</string>
+    <string name="filter_end_date">Filter end date</string>
+    <string name="date_icon">date icon</string>
+    <string name="place_icon">place icon</string>
+    <string name="drop_icon">drop icon</string>
+    <string name="collapse_icon">collapse icon</string>
+    <string name="empty_meeting_persons_list">this meeting is empty!</string>
+    <string name="add_persons_save">Sauver</string>
+    <string name="meeting_registration_save">Sauver</string>
+    <string name="add_persons_invited_to_the_meeting">Add persons invited to the meeting</string>
+    <string name="meeting_date_and_time">Meeting date and time</string>
+    <string name="place">Place</string>
+    <string name="subject">Subject</string>
+    <string name="create_meeting">Create meeting</string>
+</resources>

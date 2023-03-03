@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Cette disposition est utilisée pour le fragment qui affiche la liste des réunions.
+    Il utilise un RecyclerView pour afficher la liste des réunions.	
+    Un RelativeLayout est un utilitaire très puissant pour concevoir une interface utilisateur
+    car il peut éliminer les groupes de vues imbriqués et maintenir votre hiérarchie de mise en page à plat,
+    ce qui améliore les performances.
+	La position de chaque vue peut être spécifiée par rapport aux éléments frères
+    ou dans des positions relatives au parent. Dans notre cas, lorsque nous développons les filtres,
+    le RecyclerView sera poussé vers le bas et les filtres seront poussés vers le haut.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.MainActivity">
+
+    <!-- The filters -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fragment_meetings_card_view_filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--Layout vertical simple -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Texte de filtre statique, pour indiquer à l'utilisateur la possibilité de filtrer -->
+            <TextView
+                android:id="@+id/fragment_meetings_card_view_filter_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/size_2x"
+                android:layout_marginTop="@dimen/size_default"
+                android:layout_marginEnd="@dimen/size_2x"
+                android:layout_marginBottom="@dimen/size_default"
+                android:drawableStart="@drawable/ic_baseline_filter_24dp"
+                android:drawablePadding="@dimen/size_2x"
+                android:paddingStart="@dimen/size_2x"
+                android:paddingTop="@dimen/size_2x"
+                android:paddingEnd="@dimen/size_2x"
+                android:text="@string/filter_by_date_or_venue"
+                android:textAppearance="@android:style/TextAppearance.Material"
+                android:textColor="@color/colorAccent" />
+
+            <!-- Bouton Développer les filtres -->
+            <ImageButton
+                android:id="@+id/fragment_meetings_card_view_filter_expand_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@null"
+                android:contentDescription="@string/expand_icon"
+                android:padding="@dimen/size_default"
+                android:src="@drawable/ic_baseline_expand_more_24dp"
+                android:visibility="visible" />
+
+            <!-- Filtrer par mise en page du texte d'entrée de lieu -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_meetings_card_view_filter_place"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/size_2x"
+                android:layout_marginTop="@dimen/size_default"
+                android:layout_marginEnd="@dimen/size_2x"
+                android:layout_marginBottom="@dimen/size_default"
+                android:hint="@string/filter_place"
+                android:visibility="gone">
+
+                <!-- La saisie de texte proprement dite -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_baseline_place_24dp"
+                    android:drawableEnd="@drawable/ic_baseline_clear_24dp"
+                    android:drawablePadding="@dimen/size_2x"
+                    android:maxLength="25" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Disposition du texte de saisie de la date de début du filtre -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_meetings_card_view_filter_start_date"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/size_2x"
+                android:layout_marginTop="@dimen/size_default"
+                android:layout_marginEnd="@dimen/size_2x"
+                android:layout_marginBottom="@dimen/size_default"
+                android:hint="@string/filter_start_date"
+                android:visibility="gone"
+                app:helperText="dd/mm/yy or empty">
+
+                <!-- La disposition proprement dite -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_baseline_access_time_24dp"
+                    android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24dp"
+                    android:drawablePadding="@dimen/size_2x"
+                    android:inputType="datetime"
+                    android:maxLength="8" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Filtrer la mise en page du texte de saisie de la date de fin -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_meetings_card_view_filter_end_date"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/size_2x"
+                android:layout_marginTop="@dimen/size_default"
+                android:layout_marginEnd="@dimen/size_2x"
+                android:layout_marginBottom="@dimen/size_default"
+                android:visibility="gone"
+                android:hint="@string/filter_end_date"
+                app:helperText="dd/mm/yyyy or empty">
+
+                <!-- Le texte proprement dit -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_baseline_access_time_24dp"
+                    android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24dp"
+                    android:drawablePadding="@dimen/size_2x"
+                    android:inputType="datetime"
+                    android:maxLength="8" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Bouton Appliquer -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_meetings_card_view_filter_apply_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark"
+                android:padding="@dimen/size_2x"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/size_title"
+                android:visibility="gone"
+                android:text="@string/apply"
+                app:cornerRadius="0dp" />
+
+            <!-- Bouton Développer -->
+            <ImageButton
+                android:id="@+id/fragment_meetings_card_view_filter_collapse_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@null"
+                android:contentDescription="@string/expand_icon"
+                android:padding="@dimen/size_2x"
+                android:src="@drawable/ic_baseline_expand_less_24dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Liste des réunions -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_meetings_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/fragment_meetings_card_view_filter" />
+
+</RelativeLayout>

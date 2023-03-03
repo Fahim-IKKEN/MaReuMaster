@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_meetings_card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="8dp"
+    card_view:cardCornerRadius="8dp"
+    card_view:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_meetings_cv_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        tools:context=".ui.main.MainActivity">
+
+        <ImageView
+            android:id="@+id/fragment_meetings_cv_item_place_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_default"
+            android:layout_marginTop="@dimen/size_default"
+            android:contentDescription="@string/date_icon"
+            android:padding="@dimen/size_default"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_baseline_place_24dp"
+             />
+
+        <TextView
+            android:id="@+id/fragment_meetings_item_place_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_default"
+            android:layout_marginBottom="@dimen/size_default"
+            android:padding="@dimen/size_default"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/size_subtitle"
+            card_view:layout_constraintBottom_toBottomOf="@+id/fragment_meetings_cv_item_place_img"
+            card_view:layout_constraintStart_toEndOf="@+id/fragment_meetings_cv_item_place_img"
+            card_view:layout_constraintTop_toTopOf="@+id/fragment_meetings_cv_item_place_img" />
+
+        <ImageView
+            android:id="@+id/fragment_meetings_cv_item_date_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_default"
+            android:contentDescription="@string/place_icon"
+            android:src="@drawable/ic_baseline_access_time_24dp"
+            android:padding="@dimen/size_default"
+            card_view:layout_constraintBottom_toBottomOf="@+id/fragment_meetings_item_date_text"
+            card_view:layout_constraintEnd_toStartOf="@+id/fragment_meetings_item_date_text"
+            card_view:layout_constraintTop_toTopOf="@+id/fragment_meetings_item_date_text" />
+
+        <TextView
+            android:id="@+id/fragment_meetings_item_date_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_default"
+            android:layout_marginBottom="@dimen/size_default"
+            android:padding="@dimen/size_default"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/size_subtitle"
+            card_view:layout_constraintBottom_toBottomOf="@+id/fragment_meetings_cv_item_date_img"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toTopOf="@+id/fragment_meetings_cv_item_date_img" />
+
+        <TextView
+            android:id="@+id/fragment_meetings_item_subject_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_default"
+            android:layout_marginTop="@dimen/size_default"
+            android:layout_marginBottom="@dimen/size_default"
+            android:padding="@dimen/size_default"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/size_title"
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/fragment_meetings_item_place_text" />
+
+        <ImageButton
+            android:id="@+id/fragment_meetings_item_delete_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_2x"
+            android:background="@null"
+            android:contentDescription="@string/drop_icon"
+            android:padding="@dimen/size_2x"
+            android:src="@drawable/ic_baseline_delete_24dp"
+            card_view:layout_constraintBottom_toBottomOf="@+id/fragment_meetings_item_subject_text"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toTopOf="@+id/fragment_meetings_item_subject_text" />
+
+        <ImageButton
+            android:id="@+id/fragment_meetings_item_expand_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_default"
+            android:layout_marginEnd="@dimen/size_default"
+            android:background="@null"
+            android:contentDescription="@string/expand_icon"
+            android:padding="@dimen/size_default"
+            android:src="@drawable/ic_baseline_expand_more_24dp"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/fragment_meetings_item_subject_text" />
+
+        <TextView
+            android:id="@+id/fragment_meetings_item_persons_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_default"
+            android:layout_marginTop="@dimen/size_default"
+            android:layout_marginBottom="@dimen/size_default"
+            android:padding="@dimen/size_default"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/size_subtitle"
+            android:visibility="gone"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/fragment_meetings_item_expand_btn" />
+
+        <ImageButton
+            android:id="@+id/fragment_meetings_item_collapse_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_default"
+            android:layout_marginEnd="@dimen/size_default"
+            android:background="@null"
+            android:contentDescription="@string/collapse_icon"
+            android:padding="@dimen/size_default"
+            android:src="@drawable/ic_baseline_expand_less_24dp"
+            android:visibility="gone"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/fragment_meetings_item_persons_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
